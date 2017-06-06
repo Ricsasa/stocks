@@ -18,7 +18,8 @@
   "homepage": "https://github.com/Ricsasa/stocks#readme",
   "dependencies": {
     "express": "^4.15.3",
-    "jade": "^1.11.0"
+    "jade": "^1.11.0",
+    "mongoose": "^4.10.4"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"

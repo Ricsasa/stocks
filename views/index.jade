@@ -6,42 +6,41 @@ html
         title!= title
         link(href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css", rel="stylesheet")
         link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet")
+        link(href="/stylesheets/styles.css", rel="stylesheet")
     body   
-        div.title-bar
+        nav.top-bar
             div.top-bar-left
-                h1 
-                    i.fa.fa-line-chart 
-                    span Stock watcher
+                h2 Stock
+                    strong Watcher
+                div.credits 
+                    a(href="https://www.github.com/ricsasa", target="_blank") by Ricardo Sanchez S
         section.row
-            div.small-12.small-centered.columns
+            div.small-12.columns
                 form#searchStockForm
                     div.row
-                        div.medium-6.medium-offset-3.small-12.columns
+                        div.medium-10.medium-centered.small-12.columns
                             div.input-group
                                 input.input-group-field(type="text", placeholder="Search Stock")
                                 div.input-group-button
                                     input.button#searchStockButton(type="submit", value="Search")   
-                                div.input-group-button
-                                    a.button.success
-                                        i.fa.fa-refresh
-        section.row
-            div.medium-8.medium-centered.small-12.small-centered.columns
-                div.card-container
-
-                
+                div.row
+                    div.medium-4.medium-offset-4.small-12.columns                            
+                        a.button.success.float-center#refreshAll
+                            span Refresh all Stocks &nbsp;
+                                i.fa.fa-refresh
+        section.row.small-up-2.medium-up-3.large-up-4#card-container
+            template#card-template
+                div.column.column-block
                     div.card
-                        div.card-divider
+                        div.card-sections
                             div.row
-                                div.small-8.medium-10.columns
-                                    h3.stock-title title
+                                div.small-8.small-offset-2.medium-10.medium-offset-1.columns
+                                    h3.stock-title {{symbol}}
                                     div
-                                        span.price-container price
-                                        div.date-container Last updated:
-                                            span.date date
-                                div.small-4.medium-2.columns
-                                    div.float-right
-                                        a.button.alert
-                                            i.fa.fa-trash-o
-        
-    script(src="https://code.jquery.com/jquery-3.2.1.min.js", integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=", crossorigin="anonymous")
-    script(src="/scripts/index.js") 
+                                        div.price-container $
+                                            span.price {{price}}
+                                        div.date-container Updated at: &nbsp;
+                                            span.date {{date}}
+        div#loader.loader(style="display: none")
+        script(src="https://code.jquery.com/jquery-3.2.1.min.js", integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=", crossorigin="anonymous")
+        script(src="/scripts/index.js") 
