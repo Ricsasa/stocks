@@ -1,0 +1,26 @@
+{
+  "name": "stocks",
+  "version": "1.0.0",
+  "description": "Stock Retriever",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ricsasa/stocks.git"
+  },
+  "author": "Ricsasa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ricsasa/stocks/issues"
+  },
+  "homepage": "https://github.com/Ricsasa/stocks#readme",
+  "dependencies": {
+    "express": "^4.15.3",
+    "jade": "^1.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
