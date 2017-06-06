@@ -18,10 +18,15 @@ module.exports = (app) => {
 
     app.get('/stocks', (req, res) => {
         let stocks = req.query.stocks;
-        getAllStocks(stocks).then((stocksInfo) => {
+        if(stocks) {
+            getAllStocks(stocks).then((stocksInfo) => {
+                res.setHeader('Content-Type', 'application/json');
+                res.send(JSON.stringify(stocksInfo));
+            });
+        } else {
             res.setHeader('Content-Type', 'application/json');
-            res.send(JSON.stringify(stocksInfo));
-        });
+            res.send(JSON.stringify([]));
+        }
     });
 }
 
